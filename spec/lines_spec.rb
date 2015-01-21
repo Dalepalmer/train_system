@@ -44,7 +44,7 @@ describe(Line) do
 
   describe("#save") do
     it("lets you save lines to the database") do
-      line = Line.new({:name => "Blue line", :direction => "West-North", :id => 1})
+      line = Line.new({:name => "Blue line", :direction => "West-North", :id => nil})
       line.save()
       expect(Line.all()).to(eq([line]))
     end

@@ -2,6 +2,8 @@ require ('rspec')
 require ('stations')
 require ('pg')
 require ('spec_helper')
+require ('stops')
+require ('lines')
 
 # DB = PG.connect({:dbname => 'public_transit_test'})
 
@@ -42,7 +44,7 @@ describe(Station) do
 
   describe("#save") do
     it("lets you save lines to the database") do
-      station = Station.new({:name => "Blue line", :time => '1956-05-01 04:05:06', :id => 1})
+      station = Station.new({:name => "Blue line", :time => '1956-05-01 04:05:06', :id => nil})
       station.save()
       expect(Station.all()).to(eq([station]))
     end

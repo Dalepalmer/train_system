@@ -21,8 +21,8 @@ class Station
   end
 
   define_method(:save) do
-    DB.exec("INSERT INTO stations (name, id, time) VALUES ('#{@name}', #{@id}, '#{@time}')")
-    # @id = result.first().fetch("id").to_i()
+    result = DB.exec("INSERT INTO stations (name, time) VALUES ('#{@name}', '#{@time}') RETURNING id;")
+    @id = result.first().fetch("id").to_i()
   end
 
 
