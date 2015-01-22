@@ -1,0 +1,22 @@
+<h1>Designated Dale's Train Transit System</h1>
+
+<p>Find a train to get you where you need to go:</p>
+
+<form action="/lines" method="post">
+  <label for="name">Choose which line you need :</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit"> Add or choose a line</button>
+</form>
+
+<% if @lines.any?() %>
+  <p>Click on a list to see its tasks:</p>
+
+  <ul>
+    <% @lines.each do |line| %>
+      <li><a href="/lines/<%= line.id() %>"><%= line.name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no lines have been chosen yet!</p>
+<% end %>
